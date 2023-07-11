@@ -1,7 +1,5 @@
 # Typescript Helper
 
-## Fundamentals
-
 #### Basic Types
 
 ```
@@ -54,3 +52,5 @@ void - Default type for functions without return statement
 unknown - Added by TypeScript: Unknown type value, more restrictive than "any"
 never - For variables or function that should never get or return any value
 ```
+
+<!-- 48 -->

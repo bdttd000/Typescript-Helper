@@ -230,4 +230,29 @@ function add(a: Combinable, b: Combinable): Combinable {
 }
 ```
 
-<!-- 82 -->
+#### Optional Chaining
+
+```
+const fetchedUserData = {
+  id: "u1",
+  name: "xyz",
+  job: {
+    title: 'CEO',
+    description: 'My own compapny'
+  }
+};
+
+console.log(fetchedUserData?.job?.title);
+```
+
+#### Nullish Coalescing
+
+```
+// before
+let x = foo !== null && foo !== undefined ? foo : bar();
+
+// after
+let x = foo ?? bar();
+```
+
+<!-- 92 -->

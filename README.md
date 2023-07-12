@@ -185,4 +185,49 @@ function moveAnimal(animal: Animal) {
 }
 ```
 
+#### Type casting
+
+```
+const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
+const userInputElement = document.getElementById('user-input')! as HTMLInputElement;
+```
+
+```
+const userInputElement = document.getElementById('user-input');
+
+if (userInputElement) {
+  (userInputElement as HTMLInputElement).value = 'Hi there!';
+}
+```
+
+#### Index Properties
+
+```
+interface ErrorContainer {
+  [prop: string]: string;
+}
+
+const errorBag: ErrorContainer = {
+  email: 'Not a valid email!',
+  username: 'Must start with a captial character'
+}
+```
+
+#### Function Overloads
+
+```
+type Combinable = string | number;
+
+function add(a: number, b: number): number;
+function add(a: string, b: number): string;
+function add(a: number, b: string): string;
+function add(a: string, b: string): string;
+function add(a: Combinable, b: Combinable): Combinable {
+  if (typeof a === "string" || typeof b === "string") {
+    return a.toString() + b.toString();
+  }
+  return a + b;
+}
+```
+
 <!-- 82 -->

@@ -19,6 +19,12 @@ Any - Any kind of value, no specific type assignment
 function add(n1: number, n2: number): number {
     return n1 + n2;
 }
+
+const add = (n1: number, n2: number): number => {
+    return n1 + n2;
+}
+
+const add: (n1: number, n2: number) => number = (n1, n2) => n1 + n2
 ```
 
 #### Union & Literal Type
@@ -53,4 +59,36 @@ unknown - Added by TypeScript: Unknown type value, more restrictive than "any"
 never - For variables or function that should never get or return any value
 ```
 
-<!-- 48 -->
+#### Interfaces
+
+```
+interface Named {
+    readonly name: string;
+    surname?: string;
+}
+
+interface Aged {
+    age: number;
+}
+
+interface Greetable extends Named, Aged {
+    greeet(phrase: string): void;
+}
+
+class Person implements Greetable {
+    ...
+}
+```
+
+```
+interface AddFn {
+    (n1: number, n2: number): number;
+}
+
+let add: AddFn;
+add = (n1: number, n2: number) => {
+    return n1 + n2;
+}
+```
+
+<!-- 72 -->

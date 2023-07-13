@@ -273,4 +273,12 @@ promise.then(data => {
 })
 ```
 
+#### Generic Function
+
+```
+function merge<T extends {}, U>(objA: T, objB: U) {
+  return Object.assign(objA, objB);
+}
+```
+
 <!-- 92 -->

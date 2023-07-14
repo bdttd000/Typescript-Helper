@@ -1,4 +1,4 @@
-# Typescript Helper
+## Main knowledge
 
 #### Basic Types
 
@@ -253,7 +253,7 @@ let x = foo !== null && foo !== undefined ? foo : bar();
 let x = foo ?? bar();
 ```
 
-### Generics
+## Generics
 
 #### Built-in Generics
 
@@ -354,4 +354,64 @@ names.push('Manu'); - Not allowed
 names.pop(); - Not allowed
 ```
 
-<!-- 92 -->
+## Decorators
+
+#### First Class Decorator
+
+```
+function Logger(constructor: Function) {
+  console.log("Logging...");
+  console.log(constructor);
+}
+
+@Logger
+class Person {
+  name = "Max";
+
+  constructor() {
+    console.log("Creationg person object...");
+  }
+}
+```
+
+```
+function Logger(logString: string) {
+  return function (constructor: Function) {
+    console.log(logString);
+    console.log(constructor);
+  };
+}
+
+@Logger("LOGGING - PERSON")
+class Person {
+  name = "Max";
+
+  constructor() {
+    console.log("Creationg person object...");
+  }
+}
+```
+
+#### More Useful Decoratorrtrs
+
+```
+function WithTemplate(template: string, hookId: string) {
+  return function (constructor: any) {
+    const hookEl = document.getElementById(hookId);
+    const p = new constructor();
+    if (hookEl) {
+      hookEl.innerHTML = template;
+      hookEl.querySelector("h1")!.textContent = p.name;
+    }
+  };
+}
+
+@WithTemplate("<h1>Person Object</h1>", "app")
+class Person {
+  name = "Xyz";
+
+  constructor() {
+    console.log("Creationg person object...");
+  }
+}
+```

@@ -392,7 +392,7 @@ class Person {
 }
 ```
 
-#### More Useful Decoratorrtrs
+#### More Useful Decorators
 
 ```
 function WithTemplate(template: string, hookId: string) {
@@ -415,3 +415,40 @@ class Person {
   }
 }
 ```
+
+#### Decorators queue
+
+```
+function Logger() {
+  console.log("Logger factory");
+  return function (_: Function) {
+    console.log("Logger render");
+  };
+}
+
+function WithTemplate() {
+  console.log("Template factory");
+  return function (_: Function) {
+    console.log("Template render");
+  };
+}
+
+@Logger()
+@WithTemplate()
+class Person {
+  constructor() {
+    console.log("Creationg person object...");
+  }
+}
+
+const per = new Person();
+
+// CONSOLE
+// Logger factory
+// Template factory
+// Template render
+// Logger render
+// Creationg person object...
+```
+
+<!-- 110 -->

@@ -451,4 +451,27 @@ const per = new Person();
 // Creationg person object...
 ```
 
+#### Autobind
+
+```
+function Autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
+  const originalMethod = descriptor.value;
+  const adjDescriptor: PropertyDescriptor = {
+    configurable: true,
+    get() {
+      const boundFn = originalMethod.bind(this);
+      return boundFn;
+    },
+  };
+  return adjDescriptor;
+}
+
+class ... {
+  @Autobind
+  private submitHandler(event: Event) {
+  ...
+  }
+}
+```
+
 <!-- 110 -->

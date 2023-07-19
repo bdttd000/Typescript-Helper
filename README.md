@@ -253,6 +253,26 @@ let x = foo !== null && foo !== undefined ? foo : bar();
 let x = foo ?? bar();
 ```
 
+#### Singleton Class
+
+```
+class Singleton {
+  private static instance: Singleton;
+
+  private constructor() {}
+
+  static getInstance() {
+    if (this.instance) {
+      return this.instance;
+    }
+    this.instance = new Singleton();
+    return this.instance;
+  }
+}
+
+const singleton = Singleton.getInstance();
+```
+
 ## Generics
 
 #### Built-in Generics

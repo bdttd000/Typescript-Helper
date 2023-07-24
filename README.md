@@ -474,7 +474,7 @@ const per = new Person();
 #### Autobind
 
 ```
-function Autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
+function Autobind(_target: any, _methodName: string, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value;
   const adjDescriptor: PropertyDescriptor = {
     configurable: true,

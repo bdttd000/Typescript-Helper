@@ -1,3 +1,7 @@
+# TYPESCRIPT HELPER
+
+##### Basically file created for learning and recalling a typescript syntax. It is always good to repeat basics!
+
 ## Main knowledge
 
 #### Basic Types
